@@ -39,9 +39,9 @@ struct ContentView: View
 
             GeometryReader
             { geometry in
-                Text("Averaged Device Rotation Over All 3 Axis")
+                Text("Averaged 3-Axis Device Rotation")
                     .foregroundColor(.white)
-                    .font(.system(size: 30))
+                    .font(.system(size: 40))
                     .multilineTextAlignment(.center)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                     .padding()
