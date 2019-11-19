@@ -11,12 +11,12 @@ import CoreData
 import Combine
 import CoreMotion
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
+@UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate
 {
     var motionManager: CMMotionManager = CMMotionManager()
     var previousQuaternion: CMQuaternion!
-    var filter = LowPassFilter(sampleRate: 45, cutOffFrequency: 0.2)
+    var lpFilter: Filter!
+    var smaFilter: Filter!
 
     public let subject = PassthroughSubject<Double, Never>()
 
@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         motionManager.deviceMotionUpdateInterval = 1 / 45.0
         motionManager.startDeviceMotionUpdates()
 
+        lpFilter = LowPassFilter(sampleRate: 45, cutOffFrequency: 0.3)
+        smaFilter = SimpleMovingAverageFilter(sampleRate: 45, period: 4)
         Timer.scheduledTimer(withTimeInterval: 1/45.0, repeats: true)
         { timer in
             guard let attitude = self.motionManager.deviceMotion?.attitude else { return }
@@ -45,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
                             pow(currentQuaternion.w - self.previousQuaternion.w, 2));
             self.previousQuaternion = currentQuaternion;
 
-            let filteredDistance = self.filter.addSample(sample: distance)
+            let filteredDistance = self.lpFilter.addSample(sample: self.smaFilter.addSample(sample: distance))
             self.subject.send(filteredDistance * 10)
         }
 

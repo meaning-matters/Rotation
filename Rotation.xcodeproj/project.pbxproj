@@ -15,6 +15,8 @@
 		4864A5F02351D25E00337D10 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4864A5EF2351D25E00337D10 /* Preview Assets.xcassets */; };
 		4864A5F32351D25E00337D10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4864A5F12351D25E00337D10 /* LaunchScreen.storyboard */; };
 		4864A5FB2352109D00337D10 /* LowPassFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4864A5FA2352109D00337D10 /* LowPassFilter.swift */; };
+		48EFEFFB2383D0D900B08319 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EFEFFA2383D0D900B08319 /* Filter.swift */; };
+		48EFEFFD2383D1C400B08319 /* SimpleMovingAverageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EFEFFC2383D1C400B08319 /* SimpleMovingAverageFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4864A5F22351D25E00337D10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4864A5F42351D25E00337D10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4864A5FA2352109D00337D10 /* LowPassFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPassFilter.swift; sourceTree = "<group>"; };
+		48EFEFFA2383D0D900B08319 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		48EFEFFC2383D1C400B08319 /* SimpleMovingAverageFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleMovingAverageFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +72,9 @@
 				4864A5F42351D25E00337D10 /* Info.plist */,
 				4864A5E72351D25C00337D10 /* Rotation.xcdatamodeld */,
 				4864A5EE2351D25E00337D10 /* Preview Content */,
+				48EFEFFA2383D0D900B08319 /* Filter.swift */,
 				4864A5FA2352109D00337D10 /* LowPassFilter.swift */,
+				48EFEFFC2383D1C400B08319 /* SimpleMovingAverageFilter.swift */,
 			);
 			path = Rotation;
 			sourceTree = "<group>";
@@ -153,8 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4864A5E42351D25C00337D10 /* AppDelegate.swift in Sources */,
+				48EFEFFB2383D0D900B08319 /* Filter.swift in Sources */,
 				4864A5E92351D25C00337D10 /* Rotation.xcdatamodeld in Sources */,
 				4864A5EB2351D25C00337D10 /* ContentView.swift in Sources */,
+				48EFEFFD2383D1C400B08319 /* SimpleMovingAverageFilter.swift in Sources */,
 				4864A5FB2352109D00337D10 /* LowPassFilter.swift in Sources */,
 				4864A5E62351D25C00337D10 /* SceneDelegate.swift in Sources */,
 			);
