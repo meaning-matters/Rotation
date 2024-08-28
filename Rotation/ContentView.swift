@@ -31,7 +31,7 @@ struct ContentView : View
                 .edgesIgnoringSafeArea(.all)
 
             GeometryReader
-            {  geometry in
+            { geometry in
                 ZStack
                 {
                     Color(white: 0.3)

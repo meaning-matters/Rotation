@@ -23,14 +23,18 @@ import CoreMotion
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
-        motionManager.deviceMotionUpdateInterval = 1 / 45.0
+        let sampleRate = 45.0
+        motionManager.deviceMotionUpdateInterval = 1 / sampleRate
         motionManager.startDeviceMotionUpdates()
 
-        lpFilter = LowPassFilter(sampleRate: 45, cutOffFrequency: 0.3)
-        smaFilter = SimpleMovingAverageFilter(sampleRate: 45, period: 4)
-        Timer.scheduledTimer(withTimeInterval: 1/45.0, repeats: true)
+        lpFilter = LowPassFilter(sampleRate: sampleRate, cutOffFrequency: 0.3)
+        smaFilter = SimpleMovingAverageFilter(sampleRate: sampleRate, period: 4)
+        Timer.scheduledTimer(withTimeInterval: 1 / sampleRate, repeats: true)
         { timer in
             guard let attitude = self.motionManager.deviceMotion?.attitude else { return }
+
+            print(self.motionManager.deviceMotion!.heading)
+
             if self.previousQuaternion == nil
             {
                 self.previousQuaternion = attitude.quaternion

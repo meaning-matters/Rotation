@@ -18,9 +18,9 @@ class SimpleMovingAverageFilter: Filter
     ///
     /// - Parameter rate: Sample rate in Hz.
     /// - Parameter period: Length of the sample buffer in seconds.
-    init(sampleRate rate: Int, period: Int)
+    init(sampleRate rate: Double, period: Double)
     {
-        samples = [Double](repeating: 0.0, count: rate * period)
+        samples = [Double](repeating: 0.0, count: Int(round(rate * period)))
         average = 0.0
         index = 0
     }
